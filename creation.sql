@@ -5,9 +5,9 @@ USE air;
 
 create table Airport(
 		id_airport INT NOT NULL AUTO_INCREMENT,
-		identifier INT NOT NULL,
+		identifier INT,
     airport_name VARCHAR(150),
-    id_city INT NOT NULL,
+    id_city INT,
     latitude DOUBLE,
     longitude DOUBLE,
 		height DOUBLE,
@@ -18,9 +18,9 @@ create table Airport(
 
 create table Airline(
 	id_airline INT NOT NULL AUTO_INCREMENT,
-	identifier INT NOT NULL,
+	identifier INT,
 	airline_name VARCHAR(150),
-	id_country INT NOT NULL,
+	id_country INT,
 	alias VARCHAR(150),
 	callsign VARCHAR(50),
 	is_active CHAR,
@@ -31,12 +31,12 @@ create table Airline(
 
 create table Route(
 	id_route INT NOT NULL AUTO_INCREMENT,
-	id_airline INT NOT NULL,
-	id_depairport INT NOT NULL,
-	id_arrairport INT NOT NULL,
+	id_airline INT,
+	id_depairport INT,
+	id_arrairport INT,
 	isShared CHAR(1),
 	route_plane VARCHAR(500),
-	route_stops INT NOT NULL CHECK(route_stops >= 0),
+	route_stops INT,
 	PRIMARY KEY(id_route)
 );
 /*
@@ -46,9 +46,9 @@ create table DST(
 );
 */
 create table TimeZone(
-	id_timezone INT NOT NULL,
+	id_timezone INT NOT NULL AUTO_INCREMENT,
 	timezone_name VARCHAR(150),
-	/*timezone_UTC INT NOT NULL,*/
+	timezone_UTC INT,
 	PRIMARY KEY(id_timezone)
 );
 
@@ -62,8 +62,8 @@ create table Country(
 create table City(
 	id_city INT NOT NULL AUTO_INCREMENT,
 	city_name VARCHAR(150),
-	id_country INT NOT NULL,
-	id_timezone INT NOT NULL,
+	id_country INT,
+	id_timezone INT,
 	PRIMARY KEY(id_city)
 );
 
